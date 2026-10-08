@@ -13,31 +13,35 @@
     slides: [
       {
         eyebrow: 'WELLZYME',
-        title: '사업자와 소비자 모두의\n풍요를 함께 만듭니다',
-        desc: '좋은효소는 함께 성장하는 내일을 지향합니다.',
-        cta: { label: '회사 소개 보기', href: '/info/osCompany' },
-        tone: 'brand'
+        title: '자연이 만든 효소,\n좋은효소가 담습니다',
+        desc: '사업자와 소비자 모두의 풍요를 함께 만드는 기업입니다.',
+        cta: { label: '회사 소개', href: 'company.html' },
+        link: { label: '브랜드 스토리', href: '/info/osStory' },
+        image: { alt: '발효 효소 제품 이미지(교체 예정)' }
       },
       {
         eyebrow: 'BRAND STORY',
-        title: '자연의 시간으로\n완성하는 발효 효소',
+        title: '서두르지 않는\n발효의 시간',
         desc: '발효 효소의 탄생과 미리안 이야기를 만나보세요.',
         cta: { label: '브랜드 스토리', href: '/info/osStory' },
-        tone: 'sand'
+        link: { label: '미리안 이야기', href: '/info/osStoryMirian' },
+        image: { alt: '발효 과정 이미지(교체 예정)' }
       },
       {
         eyebrow: 'EVENT',
         title: '10월 카드사\n무이자 할부 안내',
         desc: '이달의 무이자 할부 혜택을 확인하세요.',
         cta: { label: '혜택 확인하기', href: '/board/installment' },
-        tone: 'ink'
+        link: { label: '주문/결제 안내', href: '/info/osDeliInfo' },
+        image: { alt: '이벤트 이미지(교체 예정)' }
       },
       {
         eyebrow: 'BUSINESS',
         title: '좋은효소와 함께\n성장하는 비즈니스',
         desc: '보상플랜과 회원혜택, 교육자료를 안내합니다.',
         cta: { label: '비즈니스 안내', href: '/info/osMarketing' },
-        tone: 'sage'
+        link: { label: '회원혜택', href: '/info/osBenefit' },
+        image: { alt: '비즈니스 이미지(교체 예정)' }
       }
     ],
 

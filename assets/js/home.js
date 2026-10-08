@@ -1,3 +1,4 @@
+/* 메인 페이지 전용: 메인 비주얼·공지사항·팝업 공지 */
 (function () {
   var api = window.WZ.api;
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
@@ -9,64 +10,6 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function won(n) { return Number(n).toLocaleString('ko-KR') + '원'; }
-
-  /* ---------- 헤더: 스크롤 상태 ---------- */
-  var header = $('#siteHeader');
-  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* ---------- 로그인 상태 / 장바구니 ---------- */
-  api.getSession().then(function (user) {
-    if (!user) return;
-    var html = '<li><span>' + esc(user.name) + '님</span></li><li><a href="/logout">로그아웃</a></li>';
-    $$('[data-slot="auth"], [data-slot="auth-mobile"]').forEach(function (el) { el.innerHTML = html; });
-  });
-
-  api.getCart().then(function (cart) {
-    $('[data-slot="cart-count"]').textContent = cart.count;
-    $('[data-slot="cart-total"]').textContent = won(cart.total);
-  });
-
-  /* ---------- 검색 (모바일 토글) ---------- */
-  var searchForm = $('#searchForm');
-  var searchToggle = $('.search-toggle');
-  searchToggle.addEventListener('click', function () {
-    var open = searchForm.classList.toggle('is-open');
-    searchToggle.setAttribute('aria-expanded', String(open));
-    if (open) $('#q').focus();
-  });
-  searchForm.addEventListener('submit', function (e) {
-    if (!$('#q').value.trim()) { e.preventDefault(); $('#q').focus(); }
-  });
-
-  /* ---------- 전체메뉴 ---------- */
-  var allBtn = $('#allmenuBtn');
-  var allmenu = $('#allmenu');
-
-  function setAllmenu(open) {
-    allmenu.hidden = !open;
-    allBtn.setAttribute('aria-expanded', String(open));
-    allBtn.setAttribute('aria-label', open ? '전체메뉴 닫기' : '전체메뉴 열기');
-    document.body.classList.toggle('menu-open', open);
-  }
-  allBtn.addEventListener('click', function () { setAllmenu(allmenu.hidden); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !allmenu.hidden) { setAllmenu(false); allBtn.focus(); }
-  });
-  document.addEventListener('click', function (e) {
-    if (!allmenu.hidden && !allmenu.contains(e.target) && !allBtn.contains(e.target)) setAllmenu(false);
-  });
-
-  // 모바일 아코디언
-  $$('.acc-btn', allmenu).forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var col = btn.closest('.allmenu-col');
-      var open = col.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', String(open));
-    });
-  });
 
   /* ---------- 메인 비주얼 슬라이더 ---------- */
   var track = $('[data-slot="slides"]');
@@ -79,6 +22,13 @@
   var timer = null;
   var playing = !reduceMotion;
   var INTERVAL = 6000;
+  var HERO_BADGES =
+    '<ul class="hero-badges" aria-label="좋은효소 약속">' +
+      '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg>자연 원료</li>' +
+      '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 14h9"/></svg>발효 공정</li>' +
+      '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg>건강기능식품<br>영업 등록</li>' +
+      '<li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M15 20a4 4 0 0 1 6-3.5"/></svg>함께 성장</li>' +
+    '</ul>';
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -122,14 +72,21 @@
 
   api.getSlides().then(function (data) {
     track.innerHTML = data.map(function (s, i) {
+      var media = s.image && s.image.src
+        ? '<img src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '">'
+        : '<div class="ph" role="img" aria-label="' + esc((s.image && s.image.alt) || '') + '"><span>IMAGE</span></div>';
       return (
-        '<article class="hero-slide tone-' + esc(s.tone) + '" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' / ' + data.length + '">' +
-          '<div class="hero-media ph" aria-hidden="true"><span>IMAGE</span></div>' +
+        '<article class="hero-slide" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' / ' + data.length + '">' +
+          '<div class="hero-media">' + media + '</div>' +
           '<div class="container hero-content">' +
             '<p class="eyebrow">' + esc(s.eyebrow) + '</p>' +
             '<h2 class="hero-title">' + esc(s.title).replace(/\n/g, '<br>') + '</h2>' +
             '<p class="hero-desc">' + esc(s.desc) + '</p>' +
-            '<a class="btn" href="' + esc(s.cta.href) + '">' + esc(s.cta.label) + '</a>' +
+            '<div class="hero-actions">' +
+              '<a class="btn btn-dark" href="' + esc(s.cta.href) + '">' + esc(s.cta.label) + '</a>' +
+              (s.link ? '<a class="link-arrow" href="' + esc(s.link.href) + '">' + esc(s.link.label) + '</a>' : '') +
+            '</div>' +
+            HERO_BADGES +
           '</div>' +
         '</article>'
       );
@@ -177,14 +134,6 @@
     }).join('');
   });
 
-  /* ---------- 법정 조회 팝업 ---------- */
-  $$('[data-popup]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      window.open(api.popupUrls[a.dataset.popup], a.dataset.popup, 'width=720,height=640,scrollbars=yes');
-    });
-  });
-
   /* ---------- 팝업 공지 (오늘 하루 보지 않기) ---------- */
   var layer = $('#popupLayer');
   var popupKey = function (id) { return 'wz-popup-hide-' + id; };
@@ -197,7 +146,7 @@
     var p = list.filter(function (x) { return !hiddenToday(x.id); })[0];
     if (!p) return;
     $('[data-slot="popup"]', layer).innerHTML =
-      '<div class="ph ph-popup tone-brand" aria-hidden="true"><span>IMAGE</span></div>' +
+      '<div class="ph ph-popup tone-sage" aria-hidden="true"><span>IMAGE</span></div>' +
       '<h2 id="popupTitle">' + esc(p.title) + '</h2>' +
       '<p>' + esc(p.body) + '</p>' +
       '<a class="btn btn-dark" href="' + esc(p.href) + '">자세히 보기</a>';
