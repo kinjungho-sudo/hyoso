@@ -7,6 +7,8 @@
 (function () {
   var HEADER = `
 <header class="site-header" id="siteHeader">
+  <!-- 관리자 배너 슬롯 (원본 #bannerCntsPc) — api.getTopBanner()가 값이 있을 때만 노출 -->
+  <div class="top-banner" id="bannerCntsPc" data-slot="top-banner" hidden></div>
   <div class="topbar">
     <div class="container topbar-inner">
       <a href="index.html" class="topbar-home" data-section="home">홈페이지</a>
@@ -152,6 +154,11 @@
   </nav>
   <div class="container footer-main">
     <div class="footer-brand">
+      <!-- TODO: 고객사 원본 로고(logo.svg)로 교체 -->
+      <a class="footer-logo" href="index.html" aria-label="좋은효소 홈">
+        <span class="logo-ko">좋은효소</span>
+        <span class="logo-en">WELLZYME</span>
+      </a>
       <p class="footer-company">(주)좋은효소</p>
       <a class="footer-tel" href="tel:0803114175">
         <span>대표번호</span>
@@ -172,6 +179,9 @@
     <div class="container">COPYRIGHT © 2015 (주)좋은효소 ALL RIGHTS RESERVED.</div>
   </div>
 </footer>
+
+<!-- 전역 로딩 바 (원본 #loadingBar) — 요청이 300ms 이상 걸리면 표시 -->
+<div class="loading-bar" id="loadingBar" role="progressbar" aria-label="불러오는 중" hidden></div>
 
 <!-- ⑨ 퀵메뉴 (PC: 우측 고정 / 모바일: 하단 탭바) -->
 <nav class="quick" aria-label="빠른 메뉴">

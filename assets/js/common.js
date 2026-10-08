@@ -27,6 +27,17 @@
     cta.textContent = '쇼핑몰';
   });
 
+  /* ---------- 관리자 배너 슬롯 ---------- */
+  api.getTopBanner().then(function (b) {
+    if (!b) return;
+    var slot = $('[data-slot="top-banner"]');
+    var inner = b.image
+      ? '<img src="' + esc(b.image) + '" alt="' + esc(b.text || '') + '">'
+      : '<span>' + esc(b.text) + '</span>';
+    slot.innerHTML = '<a class="container" href="' + esc(b.href || '#') + '">' + inner + '</a>';
+    slot.hidden = false;
+  });
+
   api.getCart().then(function (cart) {
     $('[data-slot="cart-count"]').textContent = cart.count;
     $('[data-slot="cart-total"]').textContent = won(cart.total);
