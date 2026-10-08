@@ -9,20 +9,10 @@
 <header class="site-header" id="siteHeader">
   <!-- 관리자 배너 슬롯 (원본 #bannerCntsPc) — api.getTopBanner()가 값이 있을 때만 노출 -->
   <div class="top-banner" id="bannerCntsPc" data-slot="top-banner" hidden></div>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <a href="index.html" class="topbar-home" data-section="home">홈페이지</a>
-      <ul class="topbar-auth" data-slot="auth">
-        <!-- 로그인 상태에 따라 common.js에서 렌더링 -->
-        <li><a href="/login">로그인</a></li>
-        <li><a href="/member/osNotUseCondAgree">회원가입</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="container header-main">
+  <!-- ① 상단 바(홈페이지·로그인·신규가입)는 내비 오른쪽 클러스터로 통합 -->
+  <div class="container nav">
     <h1 class="logo">
-      <a href="index.html" aria-label="좋은효소 홈">
+      <a href="index.html" aria-label="좋은효소 홈페이지" data-section="home">
         <!-- TODO: 고객사 원본 로고(logo.svg)로 교체 -->
         <span class="logo-ko">좋은효소</span>
         <span class="logo-en">WELLZYME</span>
@@ -46,9 +36,14 @@
       <a class="icon-btn cart" href="/shop/osOrderCart" aria-label="장바구니">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         <b class="cart-count" data-slot="cart-count">0</b>
-        <span class="cart-total" data-slot="cart-total">0원</span>
       </a>
-      <a class="btn btn-dark header-cta" href="/member/osNotUseCondAgree" data-slot="header-cta">회원가입</a>
+      <span class="cart-total" data-slot="cart-total" aria-hidden="true">0원</span>
+      <span class="nav-auth" data-slot="auth">
+        <!-- 로그인 상태에 따라 common.js에서 렌더링 -->
+        <a class="nav-link" href="/login">로그인</a>
+      </span>
+      <a class="btn btn-secondary nav-btn nav-shop" href="/shop/osMain">쇼핑몰</a>
+      <a class="btn btn-primary nav-btn" href="/member/osNotUseCondAgree" data-slot="header-cta">회원가입</a>
       <button class="icon-btn allmenu-btn" type="button" id="allmenuBtn" aria-controls="allmenu" aria-expanded="false" aria-label="전체메뉴 열기">
         <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
       </button>
@@ -59,7 +54,7 @@
     <div class="container search-inner">
       <label for="q" class="sr-only">검색</label>
       <input id="q" name="q" type="search" placeholder="검색어를 입력하세요" autocomplete="off">
-      <button type="submit" class="btn btn-dark">검색</button>
+      <button type="submit" class="btn btn-primary">검색</button>
     </div>
   </form>
 
@@ -184,7 +179,10 @@
 <div class="loading-bar" id="loadingBar" role="progressbar" aria-label="불러오는 중" hidden></div>
 
 <!-- ⑨ 퀵메뉴 (PC: 우측 고정 / 모바일: 하단 탭바) -->
-<nav class="quick" aria-label="빠른 메뉴">
+<button type="button" class="icon-btn icon-btn-outline quick-toggle" aria-controls="quickMenu" aria-expanded="false" aria-label="빠른 메뉴 열기">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="quick" id="quickMenu" aria-label="빠른 메뉴">
   <ul>
     <li><a href="/shop/osOrderCart">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11h10.6L20 7H6.2"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg>

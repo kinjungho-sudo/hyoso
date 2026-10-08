@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>좋은효소 WELLZYME</title>
   <meta name="description" content="자연 원료를 발효해 효소를 만드는 기업, 주식회사 좋은효소입니다.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;400;500&family=Cormorant+Garamond:wght@500;600&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -19,15 +16,17 @@
 
 <main id="main">
 
-  <!-- ④ 메인 비주얼: 고정 카피 + 회원가입 CTA / 오른쪽 이미지 슬라이드 -->
-  <section class="hero-section">
-    <div class="container hero-grid">
+  <!-- ④ hero-band: 흰 캔버스 + 헤드라인 + 버튼 페어, 아래 메인 비주얼 슬라이더 -->
+  <section class="hero-band">
+    <div class="container">
       <div class="hero-copy">
-        <p class="eyebrow">WELLZYME</p>
         <h2 class="hero-title">자연의 시간으로 빚은<br>발효 효소, 좋은효소</h2>
-        <p class="hero-desc">좋은 원료를 오래 발효해 만든 효소로<br class="br-pc">사업자와 소비자가 함께 풍요로워지는 내일을 만듭니다.</p>
-        <a class="btn btn-dark btn-lg" href="/member/osNotUseCondAgree">회원가입하고 시작하기</a>
-        <p class="hero-sub">이미 회원이신가요? <a href="/login">로그인</a></p>
+        <p class="hero-desc">좋은 원료를 오래 발효해 만든 효소로 사업자와 소비자가 함께 풍요로워지는 내일을 만듭니다.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/member/osNotUseCondAgree">회원가입하고 시작하기</a>
+          <a class="btn btn-secondary" href="company.html">회사 소개</a>
+        </div>
+        <p class="hero-sub">이미 회원이신가요? <a class="text-link" href="/login">로그인</a></p>
       </div>
 
       <div class="hero" aria-roledescription="carousel" aria-label="메인 비주얼">
@@ -38,14 +37,14 @@
           <div class="hero-pager" role="tablist" aria-label="슬라이드 선택" data-slot="pager"></div>
           <div class="hero-nav">
             <span class="hero-count"><b data-slot="slide-current">01</b> / <span data-slot="slide-total">04</span></span>
-            <button type="button" class="hero-btn" data-action="prev" aria-label="이전 슬라이드">
+            <button type="button" class="icon-btn icon-btn-outline" data-action="prev" aria-label="이전 슬라이드">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
             </button>
-            <button type="button" class="hero-btn" data-action="toggle" aria-label="자동 재생 정지">
+            <button type="button" class="icon-btn icon-btn-outline hero-toggle" data-action="toggle" aria-label="자동 재생 정지">
               <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
               <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
             </button>
-            <button type="button" class="hero-btn" data-action="next" aria-label="다음 슬라이드">
+            <button type="button" class="icon-btn icon-btn-outline" data-action="next" aria-label="다음 슬라이드">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
             </button>
           </div>
@@ -54,52 +53,42 @@
     </div>
   </section>
 
-  <!-- ⑤ 회사 소개 — 특징 3개, 텍스트·이미지 교차 -->
-  <section class="section features" aria-labelledby="featureTitle">
+  <!-- ⑤ 회사 소개 — 시그니처 카드 클러스터 (높이 불균등) -->
+  <section class="section" aria-labelledby="aboutTitle">
     <div class="container">
       <header class="section-head">
-        <p class="eyebrow">ABOUT</p>
-        <h2 id="featureTitle" class="section-title">좋은효소를 소개합니다</h2>
+        <h2 id="aboutTitle" class="display-md">좋은효소를 소개합니다</h2>
+        <p class="section-desc">회사와 브랜드, 그리고 함께 성장하는 비즈니스.</p>
       </header>
-
-      <article class="feature">
-        <div class="ph feature-media" role="img" aria-label="황금빛 들판의 나무 이미지(교체 예정)"><span>IMAGE</span></div>
-        <div class="feature-body">
-          <p class="feature-num">01 · WELLZYME</p>
-          <h3>자연 원료를 정성껏 발효합니다</h3>
+      <div class="sig-grid">
+        <article class="sig-card sig-forest sig-tall">
+          <p class="sig-label">WELLZYME</p>
+          <h3 class="display-md">자연 원료를<br>정성껏 발효합니다</h3>
           <p>좋은 원료와 충분한 시간, 정직한 과정. 좋은효소가 효소를 만드는 방식이자 회사가 걸어온 길입니다.</p>
-          <a class="link-arrow" href="company.html">회사 소개 보기</a>
-        </div>
-      </article>
-
-      <article class="feature">
-        <div class="ph feature-media" role="img" aria-label="자연 속 건물 이미지(교체 예정)"><span>IMAGE</span></div>
-        <div class="feature-body">
-          <p class="feature-num">02 · BRAND STORY</p>
-          <h3>발효 효소의 탄생부터<br>미리안 이야기까지</h3>
+          <a class="btn btn-secondary" href="company.html">회사 소개</a>
+          <div class="ph sig-media" role="img" aria-label="황금빛 들판의 나무 이미지(교체 예정)"><span>IMAGE</span></div>
+        </article>
+        <article class="sig-card sig-coral">
+          <p class="sig-label">BRAND STORY</p>
+          <h3 class="title-lg">발효 효소의 탄생부터 미리안 이야기까지</h3>
           <p>좋은효소 브랜드가 어떻게 시작되고 만들어졌는지, 그 과정을 담았습니다.</p>
-          <a class="link-arrow" href="/info/osStory">브랜드 스토리 보기</a>
-        </div>
-      </article>
-
-      <article class="feature">
-        <div class="ph feature-media" role="img" aria-label="업무 중인 사람 이미지(교체 예정)"><span>IMAGE</span></div>
-        <div class="feature-body">
-          <p class="feature-num">03 · BUSINESS</p>
-          <h3>함께 성장하는 비즈니스</h3>
+          <a class="btn btn-secondary" href="/info/osStory">브랜드 스토리</a>
+        </article>
+        <article class="sig-card sig-cream">
+          <p class="sig-label">BUSINESS</p>
+          <h3 class="title-lg">함께 성장하는 비즈니스</h3>
           <p>보상플랜과 회원혜택, 상품 교육자료까지. 회원이 되면 좋은효소와 함께 사업을 시작할 수 있습니다.</p>
-          <a class="link-arrow" href="/info/osMarketing">비즈니스 안내 보기</a>
-        </div>
-      </article>
+          <a class="btn btn-primary" href="/info/osMarketing">비즈니스 안내</a>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- 신뢰 정보 + ⑥ 이용 안내 -->
-  <section class="section trust" aria-labelledby="trustTitle">
+  <!-- 신뢰 정보 + ⑥ 이용 안내 — 크림 콜아웃 밴드 -->
+  <section class="section band-cream" aria-labelledby="trustTitle">
     <div class="container">
       <header class="section-head">
-        <p class="eyebrow">TRUST</p>
-        <h2 id="trustTitle" class="section-title">투명하게 운영합니다</h2>
+        <h2 id="trustTitle" class="display-md">투명하게 운영합니다</h2>
         <p class="section-desc">법으로 정해진 등록과 조회 서비스를 모두 갖추고 있습니다.</p>
       </header>
       <ul class="facts">
@@ -111,48 +100,56 @@
         <li>
           <strong>080</strong>
           <span>수신자 부담 대표번호</span>
-          <small><a href="tel:0803114175">080-311-4175</a></small>
+          <small><a class="text-link" href="tel:0803114175">080-311-4175</a></small>
         </li>
         <li>
           <strong>3</strong>
           <span>직접판매 법정 조회 서비스</span>
-          <small><a href="#" data-popup="guarantee">보증서</a> · <a href="#" data-popup="allowance">평균후원수당</a> · <a href="#" data-popup="seller">판매원</a></small>
+          <small><a class="text-link" href="#" data-popup="guarantee">보증서</a> · <a class="text-link" href="#" data-popup="allowance">평균후원수당</a> · <a class="text-link" href="#" data-popup="seller">판매원</a></small>
         </li>
       </ul>
 
-      <h3 class="sub-title">이용 안내</h3>
-      <ul class="guide-list">
-        <li><a href="/info/osDeliInfo"><strong>주문/결제/배송 안내</strong><span>주문 방법과 배송 일정</span></a></li>
-        <li><a href="/board/installment"><strong>신용카드 할부 안내</strong><span>이달의 무이자 할부 혜택</span></a></li>
-        <li><a href="/info/osUseCond"><strong>개인정보 취급방침</strong><span>개인정보 수집과 보호</span></a></li>
-        <li><a href="/info/osRules"><strong>회원약관 &amp; 규정</strong><span>회원 활동 약관과 규정</span></a></li>
+      <h3 class="title-md guide-title">이용 안내</h3>
+      <ul class="demo-grid">
+        <li class="demo-card demo-peach"><a href="/info/osDeliInfo"><strong>주문/결제/배송 안내</strong><span>주문 방법과 결제 수단, 배송 일정을 확인하세요.</span><i aria-hidden="true">→</i></a></li>
+        <li class="demo-card demo-mint"><a href="/board/installment"><strong>신용카드 할부 안내</strong><span>이달의 카드사 무이자 할부 혜택.</span><i aria-hidden="true">→</i></a></li>
+        <li class="demo-card demo-yellow"><a href="/info/osUseCond"><strong>개인정보 취급방침</strong><span>회원 개인정보를 어떻게 수집하고 보호하는지 알려드립니다.</span><i aria-hidden="true">→</i></a></li>
+        <li class="demo-card demo-mustard"><a href="/info/osRules"><strong>회원약관 &amp; 규정</strong><span>회원 가입과 활동에 적용되는 약관과 규정.</span><i aria-hidden="true">→</i></a></li>
       </ul>
     </div>
   </section>
 
-  <!-- ⑦ 공지사항 -->
+  <!-- ⑦ 공지사항 — 흰 에디토리얼 밴드 -->
   <section class="section notices" aria-labelledby="noticeTitle">
     <div class="container">
       <header class="row-head">
-        <h2 id="noticeTitle" class="row-title">공지사항</h2>
-        <a class="link-arrow" href="/board/notice">전체 보기</a>
+        <h2 id="noticeTitle" class="display-md">공지사항</h2>
+        <a class="btn btn-secondary btn-sm" href="/board/notice">전체 보기</a>
       </header>
       <ul class="notice-list" data-slot="notices">
         <!-- home.js에서 api.getNotices() 결과로 렌더링 -->
         <li class="notice-empty">공지사항을 불러오는 중입니다.</li>
       </ul>
-    </div>
-  </section>
 
-  <!-- 최종 CTA -->
-  <section class="final-cta" aria-labelledby="ctaTitle">
-    <div class="container final-cta-inner">
-      <h2 id="ctaTitle" class="final-cta-title">좋은효소 회원이 되어보세요</h2>
-      <p>회원이 되면 제품 구매와 함께 보상플랜·회원혜택·교육자료를 이용할 수 있습니다.</p>
-      <div class="final-cta-actions">
-        <a class="btn btn-light btn-lg" href="/member/osNotUseCondAgree">회원가입하고 시작하기</a>
-        <a class="link-arrow" href="/info/osBenefit">회원혜택 먼저 보기</a>
-      </div>
+      <!-- 다크 카드: 회원혜택 -->
+      <article class="dark-card">
+        <div>
+          <h2 class="display-md">회원이 되면 달라지는 것</h2>
+          <p>회원 전용 혜택과 보상플랜, 제품 교육자료를 모두 이용할 수 있습니다.</p>
+        </div>
+        <ul class="dark-card-links">
+          <li><a href="/info/osPlan">보상플랜 <i aria-hidden="true">→</i></a></li>
+          <li><a href="/info/osBenefit">회원혜택 <i aria-hidden="true">→</i></a></li>
+          <li><a href="/info/osEdu">상품 교육자료 <i aria-hidden="true">→</i></a></li>
+        </ul>
+        <a class="btn btn-secondary" href="/info/osBenefit">회원혜택 보기</a>
+      </article>
+
+      <!-- 최종 CTA: 라이트 그레이 밴드 -->
+      <article class="cta-band">
+        <h2 class="display-md">지금 좋은효소 회원이 되어보세요</h2>
+        <a class="btn btn-primary" href="/member/osNotUseCondAgree">회원가입하고 시작하기</a>
+      </article>
     </div>
   </section>
 

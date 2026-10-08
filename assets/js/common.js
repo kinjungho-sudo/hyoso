@@ -20,11 +20,13 @@
   /* ---------- 로그인 상태 / 장바구니 ---------- */
   api.getSession().then(function (user) {
     if (!user) return;
-    var html = '<li><span>' + esc(user.name) + '님</span></li><li><a href="/logout">로그아웃</a></li>';
-    $$('[data-slot="auth"], [data-slot="auth-mobile"]').forEach(function (el) { el.innerHTML = html; });
+    var name = '<span>' + esc(user.name) + '님</span>';
+    $('[data-slot="auth"]').innerHTML = name + '<a class="nav-link" href="/logout">로그아웃</a>';
+    $('[data-slot="auth-mobile"]').innerHTML = '<li>' + name + '</li><li><a href="/logout">로그아웃</a></li>';
     var cta = $('[data-slot="header-cta"]');
     cta.href = '/shop/osMain';
     cta.textContent = '쇼핑몰';
+    $('.nav-shop').hidden = true;
   });
 
   /* ---------- 관리자 배너 슬롯 ---------- */
@@ -93,6 +95,15 @@
       var open = col.classList.toggle('is-open');
       btn.setAttribute('aria-expanded', String(open));
     });
+  });
+
+  /* ---------- 퀵메뉴 접기/펼치기 (1025–1479px) ---------- */
+  var quickToggle = $('.quick-toggle');
+  var quick = $('#quickMenu');
+  quickToggle.addEventListener('click', function () {
+    var open = quick.classList.toggle('is-open');
+    quickToggle.setAttribute('aria-expanded', String(open));
+    quickToggle.setAttribute('aria-label', open ? '빠른 메뉴 닫기' : '빠른 메뉴 열기');
   });
 
   /* ---------- 법정 조회 팝업 ---------- */
