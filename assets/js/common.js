@@ -22,9 +22,9 @@
     if (!user) return;
     var html = '<li><span>' + esc(user.name) + '님</span></li><li><a href="/logout">로그아웃</a></li>';
     $$('[data-slot="auth"], [data-slot="auth-mobile"]').forEach(function (el) { el.innerHTML = html; });
-    var userLink = $('[data-slot="user-link"]');
-    userLink.href = '/mypage';
-    userLink.setAttribute('aria-label', '마이페이지');
+    var cta = $('[data-slot="header-cta"]');
+    cta.href = '/shop/osMain';
+    cta.textContent = '쇼핑몰';
   });
 
   api.getCart().then(function (cart) {

@@ -10,12 +10,6 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <a href="index.html" class="topbar-home" data-section="home">홈페이지</a>
-      <ul class="topbar-trust" aria-label="좋은효소 약속">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg>자연 원료</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 14h9"/></svg>발효 효소</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg>건강기능식품 영업 등록</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>대표번호 080-311-4175</li>
-      </ul>
       <ul class="topbar-auth" data-slot="auth">
         <!-- 로그인 상태에 따라 common.js에서 렌더링 -->
         <li><a href="/login">로그인</a></li>
@@ -47,17 +41,14 @@
       <button class="icon-btn search-toggle" type="button" aria-label="검색 열기" aria-controls="searchForm" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       </button>
-      <a class="icon-btn" href="/login" aria-label="로그인" data-slot="user-link">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-      </a>
       <a class="icon-btn cart" href="/shop/osOrderCart" aria-label="장바구니">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         <b class="cart-count" data-slot="cart-count">0</b>
         <span class="cart-total" data-slot="cart-total">0원</span>
       </a>
-      <button class="allmenu-btn" type="button" id="allmenuBtn" aria-controls="allmenu" aria-expanded="false">
+      <a class="btn btn-dark header-cta" href="/member/osNotUseCondAgree" data-slot="header-cta">회원가입</a>
+      <button class="icon-btn allmenu-btn" type="button" id="allmenuBtn" aria-controls="allmenu" aria-expanded="false" aria-label="전체메뉴 열기">
         <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="allmenu-label">전체메뉴</span>
       </button>
     </div>
   </div>
