@@ -67,7 +67,7 @@
     track.innerHTML = data.map(function (s, i) {
       var media = s.image && s.image.src
         ? '<img src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '">'
-        : '<div class="ph" role="img" aria-label="' + esc((s.image && s.image.alt) || '') + '"><span>IMAGE</span></div>';
+        : '<div class="art art--' + esc(s.tone || 'moss') + '" role="img" aria-label="' + esc((s.image && s.image.alt) || '') + '"><span class="art-note">Image</span></div>';
       return (
         '<article class="hero-slide" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' / ' + data.length + '">' +
           media +
@@ -79,7 +79,7 @@
       );
     }).join('');
     pager.innerHTML = data.map(function (s, i) {
-      return '<button type="button" role="tab" aria-label="' + (i + 1) + '번 슬라이드"><i></i></button>';
+      return '<button type="button" role="tab" aria-label="' + (i + 1) + '번 슬라이드: ' + esc(s.title) + '"><i></i><span>' + pad(i + 1) + '</span><em>' + esc(s.label) + '</em></button>';
     }).join('');
 
     slides = $$('.hero-slide', track);
@@ -133,7 +133,7 @@
     var p = list.filter(function (x) { return !hiddenToday(x.id); })[0];
     if (!p) return;
     $('[data-slot="popup"]', layer).innerHTML =
-      '<div class="ph ph-popup" aria-hidden="true"><span>IMAGE</span></div>' +
+      '<div class="art art--moss ph-popup" aria-hidden="true"><span class="art-note">Image</span></div>' +
       '<h2 id="popupTitle">' + esc(p.title) + '</h2>' +
       '<p>' + esc(p.body) + '</p>' +
       '<a class="btn btn-dark" href="' + esc(p.href) + '">자세히 보기</a>';
