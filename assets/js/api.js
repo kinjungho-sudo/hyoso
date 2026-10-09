@@ -16,10 +16,10 @@
 
     // 메인 비주얼 오른쪽 이미지 슬라이드 (카피·회원가입 CTA는 index.html에 고정)
     slides: [
-      { label: 'BRAND STORY', title: '서두르지 않는 발효의 시간', href: '/info/osStory', image: { alt: '발효 과정 이미지(교체 예정)' } },
-      { label: 'EVENT', title: '10월 카드사 무이자 할부 안내', href: '/board/installment', image: { alt: '이벤트 이미지(교체 예정)' } },
-      { label: 'WELLZYME', title: '사업자와 소비자 모두의 풍요', href: 'company.html', image: { alt: '회사 이미지(교체 예정)' } },
-      { label: 'BUSINESS', title: '함께 성장하는 비즈니스', href: '/info/osMarketing', image: { alt: '비즈니스 이미지(교체 예정)' } }
+      { label: 'BRAND STORY', title: '서두르지 않는 발효의 시간', href: '/info/osStory', image: { src: 'assets/img/hero-01.jpg', alt: '발효 과정 이미지' } },
+      { label: 'EVENT', title: '10월 카드사 무이자 할부 안내', href: '/board/installment', image: { src: 'assets/img/hero-02.jpg', alt: '이벤트 이미지' } },
+      { label: 'WELLZYME', title: '사업자와 소비자 모두의 풍요', href: 'company.html', image: { src: 'assets/img/hero-03.jpg', alt: '회사 이미지' } },
+      { label: 'BUSINESS', title: '함께 성장하는 비즈니스', href: '/info/osMarketing', image: { src: 'assets/img/hero-04.jpg', alt: '비즈니스 이미지' } }
     ],
 
     notices: [
@@ -34,7 +34,8 @@
         id: 'event-2025-10',
         title: '10월 무이자 할부 이벤트',
         body: '토스 카드사 무이자 할부 혜택을 10월 한 달간 제공합니다.',
-        href: '/board/installment'
+        href: '/board/installment',
+        image: 'assets/img/popup.jpg'
       }
     ]
   };

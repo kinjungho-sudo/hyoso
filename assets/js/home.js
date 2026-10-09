@@ -65,9 +65,10 @@
 
   api.getSlides().then(function (data) {
     track.innerHTML = data.map(function (s, i) {
-      var media = s.image && s.image.src
-        ? '<img src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '">'
-        : '<div class="ph" role="img" aria-label="' + esc((s.image && s.image.alt) || '') + '"><span>IMAGE</span></div>';
+      var img = s.image && s.image.src
+        ? '<img src="' + esc(s.image.src) + '" alt="' + esc(s.image.alt || '') + '" onerror="this.remove()">'
+        : '';
+      var media = '<div class="ph"><span>IMAGE</span>' + img + '</div>';
       return (
         '<article class="hero-slide" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' / ' + data.length + '">' +
           media +
@@ -133,7 +134,7 @@
     var p = list.filter(function (x) { return !hiddenToday(x.id); })[0];
     if (!p) return;
     $('[data-slot="popup"]', layer).innerHTML =
-      '<div class="ph ph-popup" aria-hidden="true"><span>IMAGE</span></div>' +
+      '<div class="ph ph-popup"><span>IMAGE</span>' + (p.image ? '<img src="' + esc(p.image) + '" alt="" onerror="this.remove()">' : '') + '</div>' +
       '<h2 id="popupTitle">' + esc(p.title) + '</h2>' +
       '<p>' + esc(p.body) + '</p>' +
       '<a class="btn btn-dark" href="' + esc(p.href) + '">자세히 보기</a>';
