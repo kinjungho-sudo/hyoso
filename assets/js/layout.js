@@ -22,10 +22,10 @@
     <nav class="gnb" aria-label="주 메뉴">
       <ul>
         <li><a data-section="company" href="company.html">회사소개</a></li>
-        <li><a data-section="story" href="/info/osStory">브랜드 스토리</a></li>
-        <li><a data-section="business" href="/info/osMarketing">비즈니스</a></li>
-        <li><a data-section="notice" href="/board/notice">공지사항</a></li>
-        <li><a data-section="support" href="/info/osBranch">고객센터</a></li>
+        <li><a data-section="story" href="story.html">브랜드 스토리</a></li>
+        <li><a data-section="business" href="business.html">비즈니스</a></li>
+        <li><a data-section="notice" href="notice.html">공지사항</a></li>
+        <li><a data-section="support" href="branch.html">고객센터</a></li>
       </ul>
     </nav>
 
@@ -79,44 +79,44 @@
           </ul>
         </section>
         <section class="allmenu-col">
-          <h2><a href="/info/osStory">브랜드 스토리</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="브랜드 스토리 하위 메뉴"></button></h2>
+          <h2><a href="story.html">브랜드 스토리</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="브랜드 스토리 하위 메뉴"></button></h2>
           <ul>
-            <li><a href="/info/osStory">발효 효소의 탄생</a></li>
-            <li><a href="/info/osStoryMirian">미리안 이야기</a></li>
+            <li><a href="story.html">발효 효소의 탄생</a></li>
+            <li><a href="mirian.html">미리안 이야기</a></li>
           </ul>
         </section>
         <section class="allmenu-col">
-          <h2><a href="/info/osMarketing">비즈니스</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="비즈니스 하위 메뉴"></button></h2>
+          <h2><a href="business.html">비즈니스</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="비즈니스 하위 메뉴"></button></h2>
           <ul>
-            <li><a href="/info/osMarketing">비즈니스 소개</a>
-              <ul class="depth3"><li><a href="/info/osPlan">보상플랜</a></li><li><a href="/info/osHandbook">판매원 수첩</a></li></ul>
+            <li><a href="business.html">비즈니스 소개</a>
+              <ul class="depth3"><li><a href="plan.html">보상플랜</a></li><li><a href="handbook.html">판매원 수첩</a></li></ul>
             </li>
-            <li><a href="/info/osBenefit">회원혜택</a></li>
-            <li><a href="/info/osForms">비즈니스양식</a>
-              <ul class="depth3"><li><a href="/info/osTaxGuide">세무 가이드</a></li><li><a href="/info/osEduGuide">건강기능식품 교육 가이드</a></li><li><a href="/info/osFormDocs">좋은효소 양식</a></li></ul>
+            <li><a href="benefit.html">회원혜택</a></li>
+            <li><a href="forms.html">비즈니스양식</a>
+              <ul class="depth3"><li><a href="forms.html#tax">세무 가이드</a></li><li><a href="forms.html#edu-guide">건강기능식품 교육 가이드</a></li><li><a href="forms.html#docs">좋은효소 양식</a></li></ul>
             </li>
-            <li><a href="/info/osEdu">상품 교육자료</a></li>
+            <li><a href="edu.html">상품 교육자료</a></li>
           </ul>
         </section>
         <section class="allmenu-col">
-          <h2><a href="/board/notice">공지사항</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="공지사항 하위 메뉴"></button></h2>
+          <h2><a href="notice.html">공지사항</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="공지사항 하위 메뉴"></button></h2>
           <ul>
-            <li><a href="/board/notice">공지사항</a></li>
-            <li><a href="/info/osDeliInfo">주문/결제/배송 안내</a></li>
-            <li><a href="/info/osReturn">반품/환불 안내</a></li>
-            <li><a href="/board/installment">신용카드 할부 안내</a></li>
-            <li><a href="/info/osUseCond">개인정보 취급방침</a></li>
-            <li><a href="/info/osRules">회원약관 &amp; 규정</a></li>
-            <li><a href="/board/archive">자료실</a></li>
+            <li><a href="notice.html">공지사항</a></li>
+            <li><a href="delivery.html">주문/결제/배송 안내</a></li>
+            <li><a href="return.html">반품/환불 안내</a></li>
+            <li><a href="installment.html">신용카드 할부 안내</a></li>
+            <li><a href="privacy.html">개인정보 취급방침</a></li>
+            <li><a href="terms.html">회원약관 &amp; 규정</a></li>
+            <li><a href="archive.html">자료실</a></li>
           </ul>
         </section>
         <section class="allmenu-col">
-          <h2><a href="/info/osBranch">고객센터</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="고객센터 하위 메뉴"></button></h2>
+          <h2><a href="branch.html">고객센터</a><button type="button" class="acc-btn" aria-expanded="false" aria-label="고객센터 하위 메뉴"></button></h2>
           <ul>
-            <li><a href="/info/osBranch">본부/센터 안내</a></li>
-            <li><a href="/info/osCommittee">운영위원회</a></li>
-            <li><a href="/board/gallery">사진갤러리</a></li>
-            <li><a href="/board/video">행사영상</a></li>
+            <li><a href="branch.html">본부/센터 안내</a></li>
+            <li><a href="committee.html">운영위원회</a></li>
+            <li><a href="gallery.html">사진갤러리</a></li>
+            <li><a href="video.html">행사영상</a></li>
           </ul>
         </section>
       </div>
@@ -135,7 +135,7 @@
   <nav class="footer-links" aria-label="법정 고지 및 관련 기관">
     <div class="container">
       <ul>
-        <li><a href="/info/osUseCond"><strong>개인정보취급방침</strong></a></li>
+        <li><a href="privacy.html"><strong>개인정보취급방침</strong></a></li>
         <li><a href="https://www.ftc.go.kr" target="_blank" rel="noopener">공정거래위원회</a></li>
         <li><a href="https://www.kossa.or.kr" target="_blank" rel="noopener">한국특수판매공제조합</a></li>
         <li><a href="https://www.kdsa.or.kr" target="_blank" rel="noopener">한국직접판매협회</a></li>

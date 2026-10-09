@@ -14,18 +14,20 @@ python3 -m http.server 8000
 ## 구조
 
 ```
-index.html              메인
-company.html            회사소개 > 좋은효소
-ceo.html                회사소개 > CEO 인사말
-history.html            회사소개 > 연혁
-ci.html                 회사소개 > CI
-location.html           회사소개 > 오시는 길
-assets/css/style.css    디자인 토큰 + 전체 스타일 (반응형 포함)
-assets/js/layout.js     공통 헤더·푸터·퀵메뉴 렌더링 (<div data-layout="header|footer">)
-assets/js/api.js        데이터 레이어 — 현재 목업, DB 연동 시 여기만 교체
-assets/js/common.js     모든 페이지 공통 동작 (검색, 전체메뉴, 장바구니, 법정 조회 팝업)
-assets/js/home.js       메인 전용 동작 (슬라이더, 공지, 팝업 공지)
-docs/                   기존 사이트 분석 문서
+index.html                       메인
+회사소개    company · ceo · history · ci · location
+브랜드 스토리 story · mirian
+비즈니스    business · plan · handbook · benefit · forms(#tax #edu-guide #docs) · edu
+공지사항    notice · notice-view(?id=) · delivery · return · installment · privacy · terms · archive
+고객센터    branch · committee · gallery · video
+assets/css/style.css             디자인 토큰 + 전체 스타일 (반응형 포함)
+assets/js/layout.js              공통 헤더·푸터·퀵메뉴 렌더링 (<div data-layout="header|footer">)
+assets/js/api.js                 데이터 레이어 — 현재 목업, DB 연동 시 여기만 교체
+assets/js/common.js              모든 페이지 공통 동작 (검색, 전체메뉴, 장바구니, 법정 조회 팝업, 스크롤 등장)
+assets/js/home.js                메인 전용 (슬라이더, 공지, 팝업 공지)
+assets/js/board.js               게시판 렌더링 ([data-board] 공지 목록·상세·자료실·갤러리·영상·본부/센터)
+assets/img/                      사진 넣는 곳 (README에 파일명 안내)
+docs/                            기존 사이트 분석 문서
 ```
 
 새 페이지는 `<body data-section="…" data-page="…">`로 현재 위치를 지정하고, 헤더·푸터 자리에 `data-layout` div만 두면 됩니다.
@@ -72,6 +74,10 @@ docs/                   기존 사이트 분석 문서
 | `getSlides()` | 메인 비주얼 오른쪽 이미지 슬라이드 (라벨·제목·링크·이미지) |
 | `getNotices()` | 공지사항 최근 4건 |
 | `getPopups()` | 팝업 공지 |
+| `getNoticeList()` · `getNotice(id)` | 공지 목록(검색·페이지는 현재 화면에서 처리 → DB 연동 시 쿼리로) · 상세(이전/다음 글) |
+| `getArchive()` | 자료실 파일 목록 |
+| `getGallery()` · `getVideos()` | 사진갤러리 · 행사영상 |
+| `getBranches()` | 본부/센터 목록 |
 | `noticeUrl(id)` | 공지 상세 경로 |
 | `popupUrls` | 보증서조회·평균후원수당·판매원조회 팝업 경로 (원본 URL 확인 필요) |
 
@@ -79,5 +85,7 @@ docs/                   기존 사이트 분석 문서
 
 - 사진: `assets/img/README.md`의 파일명대로 넣으면 자동 표시 (없으면 빈 자리 유지). 로고는 `layout.js`의 TODO 자리에 교체
 - 회사소개 하위 페이지의 문구(가치·CEO 인사말·연혁)는 시안용 예시 → 회사 원고로 교체
-- 아직 만들지 않은 하위 페이지 링크는 기존 사이트 경로(`/info/osStory` 등) 그대로 → 페이지 제작 시 교체
+- 하위 페이지 원고: 브랜드 스토리·미리안·보상플랜·판매원 수첩·회원혜택 문구는 시안용 예시, 주문/배송·반품·개인정보·약관은 기존 사이트 원문 이관 필요
+- 다운로드 파일(양식·교육자료·수첩): 파일을 받으면 각 '다운로드' 버튼에 연결
+- 쇼핑몰·주문·회원가입·로그인(`/shop`, `/order`, `/member`, `/login`)은 기존 MyOffice 시스템 경로 그대로 연결
 - 오시는 길 지도: 카카오맵/네이버 지도 API 키 발급 후 연결
