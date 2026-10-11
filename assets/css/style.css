@@ -697,7 +697,9 @@ body { letter-spacing: -.005em; }
   margin-bottom: 16px;
   font-size: 12px; font-weight: 600; letter-spacing: .16em; color: var(--muted);
 }
-.kicker::before { content: ""; width: 18px; height: 1px; background: currentColor; opacity: .6; }
+/* 섹션 라벨 표식 = 로고 4색 (파랑→연두→노랑→주황) */
+.kicker::before { content: ""; width: 20px; height: 3px; border-radius: 2px; flex: none;
+  background: linear-gradient(90deg, var(--brand-1) 0 25%, var(--brand-2) 25% 50%, var(--brand-3) 50% 75%, var(--brand-4) 75%); }
 
 /* 제목: 크기 대비는 키우고 자간은 좁게 — 굵기는 400~500 유지 */
 .hero-title { font-size: clamp(36px, 4.6vw, 60px); font-weight: 500; line-height: 1.18; letter-spacing: -.035em; }
@@ -988,3 +990,44 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 72px); }
 }
 .btn-sm.btn-primary::after { content: none; }
 @media (max-width: 1024px) { .quick { border-radius: 0; box-shadow: none; } }
+
+/* ==========================================================================
+   브랜드 레이어 — 기존 홈페이지에서 가져온 로고 4색 (docs/brand-concept.md)
+   면을 칠하지 않고 가는 띠·작은 표식에만 사용
+   ========================================================================== */
+:root { --brand-1: #0091FF; --brand-2: #8BDB10; --brand-3: #FFCB44; --brand-4: #FF6230; }
+
+.colorful-border, .brand-bar { display: flex; height: 3px; }
+.colorful-border i, .brand-bar i { flex: 1; }
+.colorful-border i:nth-child(1), .brand-bar i:nth-child(1) { background: var(--brand-1); }
+.colorful-border i:nth-child(2), .brand-bar i:nth-child(2) { background: var(--brand-2); }
+.colorful-border i:nth-child(3), .brand-bar i:nth-child(3) { background: var(--brand-3); }
+.colorful-border i:nth-child(4), .brand-bar i:nth-child(4) { background: var(--brand-4); }
+.colorful-border { border-radius: 2px; overflow: hidden; }
+.colorful-border + .notice-list { border-top: 0; }
+
+/* 미리안 제품 */
+.band-soft { background: #f7f6f3; }
+.product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 48px; }
+.product-card { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 16px 16px 20px; background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px; transition: transform .25s ease, box-shadow .25s ease; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -20px rgba(24, 29, 38, .35); }
+.product-card .ph { aspect-ratio: 1 / 1; border-radius: 8px; margin-bottom: 12px; }
+.product-brand { font-size: 11px; font-weight: 600; letter-spacing: .14em; color: var(--muted); }
+.product-card strong { font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.product-note { align-self: flex-start; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #eef4e4; color: #3d5a12; }
+.product-more { margin-top: auto; padding-top: 12px; font-size: 13px; color: var(--muted); }
+.product-card:hover .product-more { color: var(--ink); }
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 42%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .product-grid > li { scroll-snap-align: start; }
+}
+@media (max-width: 767px) {
+  .product-grid { grid-auto-columns: 68%; gap: 12px; margin-top: 32px; }
+}
+@media (prefers-reduced-motion: reduce) { .product-card, .product-card:hover { transition: none; transform: none; } }
+.section-block { margin-top: 120px; }
+.section-block .kicker { margin-bottom: 12px; }
+@media (max-width: 767px) { .section-block { margin-top: 72px; } }
+@media (max-width: 767px) {
+  .row-head:has(.section-desc) { flex-direction: column; align-items: flex-start; }
+}

@@ -149,4 +149,9 @@
     layer.addEventListener('click', function (e) { if (e.target === layer) close(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !layer.hidden) close(false); });
   });
+  /* ---------- 미리안 제품 ---------- */
+  var productEl = $('[data-slot="products"]');
+  if (productEl) api.getProducts().then(function (list) {
+    productEl.innerHTML = list.map(window.WZ.productCard).join('');
+  });
 })();

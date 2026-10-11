@@ -16,9 +16,9 @@
 
     // 메인 비주얼 오른쪽 이미지 슬라이드 (카피·회원가입 CTA는 index.html에 고정)
     slides: [
-      { label: 'BRAND STORY', title: '서두르지 않는 발효의 시간', href: 'story.html', image: { src: 'assets/img/hero-01.jpg', alt: '발효 과정 이미지' } },
+      { label: 'MIRIAN', title: '좋은효소의 효소 브랜드, 미리안', href: 'mirian.html', image: { src: 'assets/img/hero-01.jpg', alt: '미리안 제품 이미지' } },
       { label: 'EVENT', title: '10월 카드사 무이자 할부 안내', href: 'installment.html', image: { src: 'assets/img/hero-02.jpg', alt: '이벤트 이미지' } },
-      { label: 'WELLZYME', title: '사업자와 소비자 모두의 풍요', href: 'company.html', image: { src: 'assets/img/hero-03.jpg', alt: '회사 이미지' } },
+      { label: 'WELLZYME', title: '사업자와 소비자 모두의 풍요창조', href: 'company.html', image: { src: 'assets/img/hero-03.jpg', alt: '회사 이미지' } },
       { label: 'BUSINESS', title: '함께 성장하는 비즈니스', href: 'business.html', image: { src: 'assets/img/hero-04.jpg', alt: '비즈니스 이미지' } }
     ],
 
@@ -35,6 +35,15 @@
       { id: '20250430000000000001', title: '05월 카드사 무이자 할부 안내', date: '2025-04-30' },
       { id: '20250401000000000001', title: '개인정보 취급방침 개정 안내', date: '2025-04-01' },
       { id: '20250331000000000001', title: '04월 카드사 무이자 할부 안내', date: '2025-03-31' }
+    ],
+
+    // 미리안 제품 라인 — 공개 판매 정보 기준 제품명. 분류·문구는 회사 확인 후 보완
+    products: [
+      { id: 'clean', name: '미리안 클린', note: '건강기능식품', image: 'assets/img/product-clean.jpg', href: '/shop/osMain' },
+      { id: 'innerzyme', name: '미리안 이너자임', note: '', image: 'assets/img/product-innerzyme.jpg', href: '/shop/osMain' },
+      { id: 'slim', name: '미리안 슬림', note: '', image: 'assets/img/product-slim.jpg', href: '/shop/osMain' },
+      { id: 'alphazyme', name: '미리안 알파자임', note: '', image: 'assets/img/product-alphazyme.jpg', href: '/shop/osMain' },
+      { id: 'tea', name: '미리안차', note: '', image: 'assets/img/product-tea.jpg', href: '/shop/osMain' }
     ],
 
     // 아래 목록은 모두 시안용 목업 — DB 연동 시 실제 데이터로 교체
@@ -113,6 +122,7 @@
     getSlides: function () { return resolve(MOCK.slides); },
     getNotices: function () { return resolve(MOCK.notices.slice(0, 4)); },
     getPopups: function () { return resolve(MOCK.popups); },
+    getProducts: function () { return resolve(MOCK.products); },
     // 하위 페이지 게시판 — DB 연동 시 페이지·검색어를 쿼리로 넘기도록 교체
     getNoticeList: function () { return resolve(MOCK.notices); },
     getNotice: function (id) {

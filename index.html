@@ -21,8 +21,8 @@
     <div class="container">
       <div class="hero-copy reveal">
         <p class="kicker">WELLZYME</p>
-        <h2 class="hero-title">자연의 시간으로 빚은<br>발효 효소, 좋은효소</h2>
-        <p class="hero-desc">좋은 원료를 오래 발효해 만든 효소로 사업자와 소비자가 함께 풍요로워지는 내일을 만듭니다.</p>
+        <h2 class="hero-title">사업자와 소비자 모두의<br>풍요를 만드는 기업</h2>
+        <p class="hero-desc">좋은효소는 발효 효소 브랜드 <strong>미리안</strong>과 함께 성장하는 비즈니스로, 소비자와 사업자가 함께 풍요로워지는 내일을 만듭니다.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="/member/osNotUseCondAgree">회원가입하고 시작하기</a>
           <a class="btn btn-secondary" href="company.html">회사 소개</a>
@@ -51,6 +51,23 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 미리안 제품 — 좋은효소의 제품 브랜드 -->
+  <section class="section band-soft" aria-labelledby="mirianTitle">
+    <div class="container">
+      <header class="row-head reveal">
+        <div>
+          <p class="kicker">MIRIAN</p>
+          <h2 id="mirianTitle" class="display-md">좋은효소의 효소 브랜드, 미리안</h2>
+          <p class="section-desc">미리안 제품은 회원 쇼핑몰에서 만나볼 수 있습니다.</p>
+        </div>
+        <a class="btn btn-secondary btn-sm" href="mirian.html">미리안 이야기</a>
+      </header>
+      <ul class="product-grid reveal" data-slot="products">
+        <!-- home.js에서 api.getProducts() 결과로 렌더링 -->
+      </ul>
     </div>
   </section>
 
@@ -132,6 +149,7 @@
         </div>
         <a class="btn btn-secondary btn-sm" href="notice.html">전체 보기</a>
       </header>
+      <div class="colorful-border" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <ul class="notice-list reveal" data-slot="notices">
         <!-- home.js에서 api.getNotices() 결과로 렌더링 -->
         <li class="notice-empty">공지사항을 불러오는 중입니다.</li>

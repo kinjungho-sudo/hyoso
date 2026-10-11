@@ -126,4 +126,19 @@
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
     reveals.forEach(function (el) { io.observe(el); });
   }
+  /* 미리안 제품 카드 — 메인·미리안 이야기 공용 */
+  window.WZ.productCard = function (p) {
+    var esc = function (v) { return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) { return '&#' + c.charCodeAt(0) + ';'; }); };
+    return '<li><a class="product-card" href="' + esc(p.href) + '">' +
+      '<div class="ph"><span>PRODUCT</span><img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.remove()"></div>' +
+      '<span class="product-brand">MIRIAN</span>' +
+      '<strong>' + esc(p.name) + '</strong>' +
+      (p.note ? '<span class="product-note">' + esc(p.note) + '</span>' : '') +
+      '<span class="product-more">쇼핑몰에서 보기 →</span>' +
+    '</a></li>';
+  };
+  var productList = document.querySelector('[data-products]');
+  if (productList && window.WZ.api) window.WZ.api.getProducts().then(function (list) {
+    productList.innerHTML = list.map(window.WZ.productCard).join('');
+  });
 })();

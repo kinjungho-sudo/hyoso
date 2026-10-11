@@ -16,6 +16,7 @@
 | `story-main.jpg` | 브랜드 스토리 > 발효 효소의 탄생 | 2400×1030 | 발효 과정 |
 | `mirian.jpg` | 브랜드 스토리 > 미리안 이야기 | 1200×1500 | 미리안 브랜드 |
 | `committee-01.jpg` ~ `04.jpg` | 고객센터 > 운영위원회 | 600×600 | 위원 프로필 |
+| `product-clean.jpg` · `product-innerzyme.jpg` · `product-slim.jpg` · `product-alphazyme.jpg` · `product-tea.jpg` | 메인 MIRIAN · 미리안 이야기 제품 카드 | 1000×1000 | 제품 패키지 정면 컷 (밝은 단색 배경) |
 | `gallery-01.jpg` ~ `06.jpg` | 고객센터 > 사진갤러리 (목업 6건) | 1200×900 | 행사 사진 — DB 연동 후엔 게시판 이미지 사용 |
 | `video-01.jpg` ~ `04.jpg` | 고객센터 > 행사영상 · 상품 교육자료 (목업) | 1280×720 | 영상 썸네일 — DB 연동 후엔 게시판 이미지 사용 |
 

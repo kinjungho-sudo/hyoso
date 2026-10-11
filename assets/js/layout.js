@@ -132,6 +132,7 @@
   var FOOTER = `
 <!-- ⑧ 푸터 -->
 <footer class="site-footer">
+  <div class="brand-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <nav class="footer-links" aria-label="법정 고지 및 관련 기관">
     <div class="container">
       <ul>
